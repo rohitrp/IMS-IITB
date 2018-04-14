@@ -33,13 +33,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   void _performLogin() {
-
-    final snackbar = new SnackBar(
-        content: new Text('Email: $_email, password: $_password'),
-    );
-
-    scaffoldKey.currentState.showSnackBar(snackbar);
-
     var _response = login(_email, _password);
     _response
         .then((response) => _checkLogin(response));
