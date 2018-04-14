@@ -9,7 +9,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      home: new DefaultTabController(
+        theme: new ThemeData(
+          brightness: Brightness.light,
+          primaryColor: Colors.red[600],
+          accentColor: Colors.grey[600],
+        ),      home: new DefaultTabController(
         length: 2,
         child: new Scaffold(
           appBar: new AppBar(

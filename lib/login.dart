@@ -54,9 +54,7 @@ class _LoginPageState extends State<LoginPage> {
 
     return new Scaffold(
       key: scaffoldKey,
-      appBar: new AppBar(
-        title: new Text('Login'),
-      ),
+      resizeToAvoidBottomPadding: false,
       body: new Padding(
         padding: const EdgeInsets.all(16.0),
         child: new Form(

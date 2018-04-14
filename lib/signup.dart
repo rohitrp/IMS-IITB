@@ -17,7 +17,6 @@ class _SignupPageState extends State<SignupPage> {
 
   void _submit() {
     final form = formKey.currentState;
-    print("HERE");
     if (form.validate()) {
       form.save();
 
@@ -32,18 +31,21 @@ class _SignupPageState extends State<SignupPage> {
     client.post(
       _uri,
       body: {"email": _email, "name": _name, "password": _password})
-    .then((response) => client.get(response.body))
-    .then((response) => print(response.body))
+    .then((response) => _checkSignup(response.body))
     .whenComplete(client.close);
+  }
+
+  void _checkSignup(body) {
+    if (body.status == 1) {
+
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
       key: scaffoldKey,
-      appBar: new AppBar(
-        title: new Text('Signup'),
-      ),
+      resizeToAvoidBottomPadding: false,
       body: new Padding(
         padding: const EdgeInsets.all(16.0),
         child: new Form(
