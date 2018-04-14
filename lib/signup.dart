@@ -68,9 +68,16 @@ class _SignupPageState extends State<SignupPage> {
                 onSaved: (val) => _password = val,
                 obscureText: true,
               ),
-              new RaisedButton(
-                onPressed: _submit,
-                child: new Text('Signup'),
+              new Container(
+                padding: const EdgeInsets.only(top: 20.0),
+                child: new RaisedButton(
+                  onPressed: _submit,
+                  color: Theme.of(context).accentColor,
+                  elevation: 4.0,
+                  splashColor: Colors.blueGrey,
+                  textColor: Colors.white,
+                  child: new Text('Signup'),
+                ),
               ),
             ],
           ),

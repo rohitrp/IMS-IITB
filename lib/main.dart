@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iitb_ims/login.dart';
+import 'package:iitb_ims/signup.dart';
 
 void main() => runApp(new MyApp());
 
@@ -8,11 +9,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'Flutter Demo',
-      theme: new ThemeData(
-          primarySwatch: Colors.blue,
-      ),
-      home: new LoginPage(),
+      home: new DefaultTabController(
+        length: 2,
+        child: new Scaffold(
+          appBar: new AppBar(
+            bottom: new TabBar(
+              tabs: [
+                new Tab(text: 'Login'),
+                new Tab(text: 'Signup'),
+              ],
+            ),
+            title: new Text('IMS IIT Bomby')
+          ),
+          body: new TabBarView(
+            children: [
+              new LoginPage(),
+              new SignupPage(),
+            ],
+          )
+        )
+      )
     );
   }
 }
