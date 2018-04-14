@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-
-const String BASE_URL = "10.16.23.129:5000";
+import 'constant.dart';
 
 Future<http.Response> login(email, password) {
   Uri _uri  = new Uri.http(BASE_URL, '/api/login/', {"email": email, "password": password});
