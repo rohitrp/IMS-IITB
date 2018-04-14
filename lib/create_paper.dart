@@ -48,6 +48,7 @@ class _CreatePaperScreenState extends State<CreatePaperScreen> {
       );
 
       scaffoldKey.currentState.showSnackBar(snackbar);
+      formKey.currentState.reset();
     }
   }
 
