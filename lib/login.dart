@@ -41,7 +41,6 @@ class _LoginPageState extends State<LoginPage> {
     scaffoldKey.currentState.showSnackBar(snackbar);
 
     var _response = login(_email, _password);
-    print("ROHIT");
     _response
         .then((response) => _checkLogin(response));
   }
@@ -49,11 +48,10 @@ class _LoginPageState extends State<LoginPage> {
   void _checkLogin(response) {
     response = json.decode(response.body);
     if (response['status'] == 1)  {
-      print("HERE");
       Navigator.of(context).push(
         new MaterialPageRoute(
           builder: (context) {
-            return new ProfilePage();
+            return new ProfilePage(email: this._email, name: response['name']);
           }
         )
       );
