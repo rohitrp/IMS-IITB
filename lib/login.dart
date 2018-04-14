@@ -4,6 +4,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'constant.dart';
+import 'package:iitb_ims/profile.dart';
 
 Future<http.Response> login(email, password) {
   Uri _uri  = new Uri.http(BASE_URL, '/api/login/', {"email": email, "password": password});
@@ -40,13 +41,23 @@ class _LoginPageState extends State<LoginPage> {
     scaffoldKey.currentState.showSnackBar(snackbar);
 
     var _response = login(_email, _password);
-    
+    print("ROHIT");
     _response
-        .then((response) => _checkLogin(response.body));
+        .then((response) => _checkLogin(response));
   }
 
   void _checkLogin(response) {
-    print(response);
+    response = json.decode(response.body);
+    if (response['status'] == 1)  {
+      print("HERE");
+      Navigator.of(context).push(
+        new MaterialPageRoute(
+          builder: (context) {
+            return new ProfilePage();
+          }
+        )
+      );
+    }
   }
 
   @override
