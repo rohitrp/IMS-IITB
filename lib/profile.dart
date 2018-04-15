@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:iitb_ims/constant.dart';
 import 'package:http/http.dart' as http;
 import 'package:iitb_ims/create_paper.dart';
+import 'package:iitb_ims/papers.dart';
 
 class ProfilePage extends StatefulWidget {
   final String email, name;
@@ -63,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   )
                 )
               ),
-              new Text("Papers"),
+              new PapersScreen(email: this.email),
             ],
           )
         )
